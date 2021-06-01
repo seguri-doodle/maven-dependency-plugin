@@ -329,6 +329,11 @@ public abstract class AbstractAnalyzeMojo
 
         Set<Artifact> ignoredUsedUndeclared = new LinkedHashSet<>();
         Set<Artifact> ignoredUnusedDeclared = new LinkedHashSet<>();
+        
+        if ( ignoreUnusedRuntime )
+        {
+            filterArtifactsByScope( unusedDeclared, Artifact.SCOPE_RUNTIME );
+        }
 
         if ( ignoreUnusedRuntime )
         {
